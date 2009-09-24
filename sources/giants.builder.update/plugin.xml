@@ -1,0 +1,53 @@
+<plugin xmlns="http://www.tibco.com/gi/amp"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.tibco.com/gi/amp http://gi.tibco.com/xsd/plugin.xsd"
+        id="giants.builder.update"
+        name="GI AdditioNal ToolkitS"
+        version="0.1">
+
+  <requires>
+  </requires>
+
+  <resources>
+    <xml id="aboutDlg_xml" path="ui/about.xml"/>
+    <xml id="addonsDlg_xml" path="ui/addons.xml"/>
+    <script id="PlugIn" path="classes/plugin.js" eval="true"/>
+  </resources>
+
+  <extension-point id="info"/>
+
+  <extension point="jsx3.ide.ui.menu" id="menu.giants">
+    <menu id="jsx3.ide.giants" label="GIAnts" path="/">
+      <section id="extension"/>
+      <section id="config"/>
+      <section id="list"/>
+      <divider id="about"/>
+    </menu>
+  </extension>
+
+  <extension point="jsx3.ide.ui.action" id="menu.giants.extension">
+    <action
+        id="jsx3.ide.giants.extension"
+        label="Addons..."
+        tip="Show all addons information provided by giants project."
+        menupath="/jsx3.ide.giants/list"
+        execute="this.getPlugIn().loadAddonsListDlg();"/>
+  </extension>
+
+  <extension point="jsx3.ide.ui.action" id="menu.giants.about">
+    <action
+        id="jsx3.ide.giants.checkversion"
+        label="Check for Update..."
+        menupath="/jsx3.ide.giants/about" hkconfig="true"
+        execute="this.getPlugIn().checkVersion();"/>
+  </extension>
+  <extension point="jsx3.ide.ui.action" id="menu.giants.about">
+    <action
+        id="jsx3.ide.giants.about"
+        label="About"
+        tip="About GiAnts"
+        menupath="/jsx3.ide.giants/about" hkconfig="true"
+        execute="this.getPlugIn().loadAboutDlg();"/>
+  </extension>
+
+</plugin>

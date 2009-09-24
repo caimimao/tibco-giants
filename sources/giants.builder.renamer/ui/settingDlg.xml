@@ -1,0 +1,156 @@
+<serialization xmlns="urn:tibco.com/v3.0" jsxversion="3.8">
+  <name>Dialog</name>
+  <icon>images/prototypes/dialog.gif</icon>
+  <description>Dialog box.  (Set Modal property for a modal dialog).</description>
+  <onBeforeDeserialize/>
+  <onAfterDeserialize>
+
+  objJSX.setDirty = function(dirty) {
+    btnSave.setEnabled(dirty ? jsx3.gui.Form.STATEENABLED : jsx3.gui.Form.STATEDISABLED, true);
+  };
+
+  mcClassName.setFormatHandler(
+    function(objDiv, strCDFKey, objMatrix, objMatrixColumn, intRowNumber, objServer) {
+      if(strCDFKey == "jsxautorow") {
+        var strXid = objMatrix.getAutoRowSession().jsxid;
+        if(strXid.indexOf("jsx") == 0)
+          objMatrix.getAutoRowSession().jsxid = "";
+        objDiv.innerHTML = objMatrix.getAutoRowSession().jsxid;
+      }
+    }
+  );
+
+  mcButton.setFormatHandler(
+    function(objDiv, strCDFKey, objMatrix, objMatrixColumn, intRowNumber, objServer) {
+      if(strCDFKey == "jsxautorow") {
+        objDiv.innerHTML = '&lt;div onclick="jsx3.html.getJSXParent(this).getServer().getJSXById(\'' + objMatrix.getId() + '\').commitAutoRowSession();"&gt;' + objDiv.innerHTML.replace("delete", "plus").replace(/on[a-z]*=/g, "xxx=") + '&lt;/div&gt;';
+      }
+    }
+  );
+
+  objJSX.initDialog = function() {
+    btnSave.setEnabled(jsx3.gui.Form.STATEDISABLED, true);
+    mtxMain.resetCacheData();
+    mtxMain.setXMLString(this.getPlugIn().loadHungarianSetting().toString());
+  };
+
+  objJSX.removeDP = function(strRecordId, objMatrix) {
+    objMatrix.deleteRecord(strRecordId, true);
+    this.setDirty(true);
+  };
+
+  objJSX.doSave = function() {
+    this.getPlugIn().saveHungarianSetting(mtxMain.getXML());
+    this.setDirty(false);
+    this.doClose();
+  };
+
+  objJSX.restoreDefault = function() {
+    mtxMain.resetCacheData();
+    mtxMain.setXMLString(this.getPlugIn().loadDefaultHungarianSetting());    
+    mtxMain.repaintData();
+    this.setDirty(true);
+  };
+
+  </onAfterDeserialize>
+  <object type="jsx3.gui.Dialog">
+    <variants jsxwidth="537" jsxheight="289" jsxzindex="5000" jsxwindowstate="1"/>
+    <strings jsxname="dlgHungarianSetting"/>
+    <dynamics jsxbgcolor="@Solid Medium"/>
+    <object type="jsx3.gui.WindowBar">
+      <variants/>
+      <strings jsxname="windowBar" jsxtext="Hungarian Notation Setting"/>
+      <object type="jsx3.gui.ToolbarButton">
+        <variants/>
+        <strings jsxname="btnMinimize"/>
+        <dynamics jsximage="@Min Icon" jsxtip="jsx3.gui.Dialog.min"/>
+        <events jsxexecute="this.getAncestorOfType(jsx3.gui.Dialog).doToggleState();"/>
+      </object>
+      <object type="jsx3.gui.ToolbarButton">
+        <variants/>
+        <strings jsxname="btnMaximize"/>
+        <dynamics jsximage="@Restore Icon" jsxtip="jsx3.gui.Dialog.restore"/>
+        <events jsxexecute="this.getAncestorOfType(jsx3.gui.Dialog).doMaximize(this);"/>
+      </object>
+      <object type="jsx3.gui.ToolbarButton">
+        <variants/>
+        <strings jsxname="btnClose"/>
+        <dynamics jsximage="@Close Icon" jsxtip="jsx3.gui.Dialog.close"/>
+        <events jsxexecute="this.getAncestorOfType(jsx3.gui.Dialog).doClose();"/>
+      </object>
+    </object>
+    <object type="jsx3.gui.Block">
+      <variants jsxoverflow="1" jsxloadtype="1"/>
+      <strings jsxname="block" jsxwidth="100%" jsxheight="100%" jsxrelativeposition="1"/>
+      <object type="jsx3.gui.LayoutGrid">
+        <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0" jsxoverflow="2"/>
+        <strings jsxname="layoutRows" jsxrows="*,30" jsxwidth="100%" jsxheight="100%"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxoverflow="2"/>
+          <strings jsxname="pane1" jsxwidth="100%" jsxheight="100%" jsxpadding="5"/>
+          <object type="jsx3.gui.Block">
+            <variants jsxoverflow="1"/>
+            <strings jsxname="block" jsxwidth="100%" jsxheight="100%" jsxrelativeposition="1" jsxmargin="" jsxborder="1px solid #ccc"/>
+            <object type="jsx3.gui.Matrix">
+              <variants jsxpagingmodel="0" jsxscalewidth="1" jsxselectionmodel="0" jsxresize="1" jsxreorder="0" jsxheaderheight="21" jsxautorow="1" jsxsort="1" jsxshare="1"/>
+              <strings xmlns="urn:tibco.com/v3.0" jsxname="mtxMain" jsxfocusstyle=";" jsxsortpath="jsxid" jsxsorttype="text" jsxsortdirection="ascending" jsxxmlid="giants.builder.renamer.cdfHungarianSettings"/>
+              <dynamics jsxbgcolor="@Solid Light"/>
+              <events jsxafteredit="if(objCOLUMN.getPath() == 'jsxid') this.redrawRecord(strRECORDID);"
+                    jsxaftercommit="dlgHungarianSetting.setDirty(true);"/>
+              <xslparameters jsx_rowbg1="#ffffff" jsx_rowbg2="#ffffff" jsx_autorow_style="background-color:#ffffcc"/>
+              <object type="jsx3.gui.Matrix.Column">
+                <variants jsxresize="0" jsxsort="0"/>
+                <strings jsxname="mcButton" jsxvaluetemplate="@empty" jsxcellpadding="1" jsxpadding="3" jsxwidth="20" jsxborder="0px;0px;1px solid #ccc;0px;" jsxcellborder="0px;0px;1px solid #ccc;0px" jsxpath="jsxcheck"/>
+                <dynamics jsxbg="@Bevel TopDown"/>
+                <object type="jsx3.gui.ImageButton">
+                  <variants jsxwidth="16" jsxheight="16" jsxenabled="1" jsxprefetch="1" jsxtype="0" jsxstate="0"/>
+                  <strings jsxname="imagebutton" jsximage="images/delete.gif"/>
+                  <events jsxexecute="dlgHungarianSetting.removeDP(this.emGetSession().recordId, this.emGetSession().matrix);"/>
+                </object>
+              </object>
+              <object type="jsx3.gui.Matrix.Column">
+                <variants jsxresize="1"/>
+                <strings jsxwidth="*" jsxname="mcClassName" jsxtext="Class Name" jsxpath="jsxid" jsxcellpadding="3" jsxpadding="3" jsxcellborder="0px;0px;1px solid #ccc;1px solid #ccc;" jsxborder="0px;0px;1px solid #ccc;1px solid #ccc" jsxfontweight="bold" jsxcellcolor="#000000"/>
+                <dynamics jsxbg="@Bevel TopDown"/>
+                <object type="jsx3.gui.TextBox">
+                  <variants jsxheight="18" jsxrelativeposition="0" jsxzindex="10" jsxleft="0" jsxtop="40"/>
+                  <strings jsxname="textbox" jsxmargin="0 4 0 0" jsxdisplay="none" jsxvalue="jsx3.gui.BlockX"/>
+                  <events jsxkeydown="1;"/>
+                </object>
+              </object>
+              <object type="jsx3.gui.Matrix.Column">
+                <variants jsxsort="1" jsxwidth="120"/>
+                <strings jsxname="mcPrefix" jsxtext="Hungarian Prefix" jsxpath="hungarian" jsxcellpadding="3" jsxpadding="3" jsxcellborder="0px;0px;1px solid #ccc;1px solid #ccc;" jsxborder="0px;0px;1px solid #ccc;1px solid #ccc" jsxfontweight="bold" jsxcellcolor="#0000FF" jsxcelltextalign="left"/>
+                <dynamics jsxbg="@Bevel TopDown"/>
+                <object type="jsx3.gui.TextBox">
+                  <variants jsxheight="18" jsxrelativeposition="0" jsxzindex="10" jsxleft="380" jsxtop="0"/>
+                  <strings jsxname="textbox" jsxmargin="0 4 0 0" jsxdisplay="none" jsxvalue=""/>
+                  <events jsxkeydown="1;"/>
+                </object>
+              </object>
+            </object>
+          </object>
+        </object>
+        <object type="jsx3.gui.Block">
+          <variants jsxoverflow="1"/>
+          <strings jsxname="pane2" jsxwidth="100%" jsxheight="100%" jsxtextalign="right" jsxpadding="5"/>
+          <object type="jsx3.gui.Button">
+            <variants jsxindex="0" jsxheight="18"/>
+            <strings jsxname="btnSave" jsxtext="Save" jsxmargin="0 4 0 0" jsxfontweight="bold"/>
+            <events jsxexecute="dlgHungarianSetting.doSave();"/>
+          </object>
+          <object type="jsx3.gui.Button">
+            <variants jsxindex="0" jsxheight="18"/>
+            <strings jsxname="btnRevert" jsxtext="Restore default" jsxmargin="0 4 0 0"/>
+            <events jsxexecute="dlgHungarianSetting.restoreDefault();"/>
+          </object>
+          <object type="jsx3.gui.Button">
+            <variants jsxindex="0" jsxheight="18"/>
+            <strings jsxname="btnCancel" jsxtext="Cancel" jsxmargin="0 4 0 0"/>
+            <events jsxexecute="dlgHungarianSetting.doClose();"/>
+          </object>
+        </object>
+      </object>
+    </object>
+  </object>
+</serialization>

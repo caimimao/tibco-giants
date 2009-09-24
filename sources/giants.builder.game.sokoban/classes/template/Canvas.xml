@@ -1,0 +1,77 @@
+<transform version="1.0" xmlns="http://gi.tibco.com/transform/" xmlns:u="http://gi.tibco.com/transform/user">
+  <template>
+    
+    <inlinebox id="{$id}"
+      style="position:{$position};left:{$left};top:{$top};width:{$width};height:{$height};background:{images.canvasBg};border:0px solid red;">
+      
+      <!-- Numbers: Level, step, time -->
+      <div u:id="divLevel" u:protected="true" 
+         style="position:absolute;border:0px solid red;top:200px;
+          left:490px;width:70px;height:50px;font-size:45px;color:#FFFFFF;font-family:Arial;text-align:center">
+      </div>
+      <div u:id="divStep" u:protected="true" 
+         style="position:absolute;border:0px solid red;top:50px;
+          left:330px;width:30px;height:30px;font-size:14px;color:#FFFFFF;font-family:Arial">
+      </div>
+      <div u:id="divTime" u:protected="true" 
+         style="position:absolute;border:0px solid red;top:50px;
+          left:150px;width:30px;height:30px;font-size:14px;color:#FFFFFF;font-family:Arial">
+      </div>
+      
+      <!-- Help -->
+      <div u:protected="true"
+         style="position:absolute;border:0px solid red;top:120px; cursor:pointer;
+          left:372px;width:220px;height:300px;display:{helpBoxDisplay};z-index:101;background:{images.helpBoxScreenBg};">
+        <!--img u:protected="true" src="{images.helpBoxScreen}" title="Help"/-->
+      </div>
+
+      <!-- Buttons -->
+      <div u:protected="true" 
+         onmouseover="{onMouseOver}" onmouseout="{onMouseOut}" onclick="{helpAction}" 
+         style="position:absolute;border:0px solid red;top:410px; cursor:pointer;
+          left:30px;width:30px;height:30px;font-size:14px;color:#FFFFFF;font-family:Arial">
+        <img u:protected="true" style="width:40px;height:40px" src="{images.helpBtn}" title="Help"/>
+      </div>
+      <div u:protected="true" 
+        onmouseover="{onMouseOver}" onmouseout="{onMouseOut}" onclick="{resetAction}"
+        style="position:absolute;border:0px solid red;top:410px; cursor:pointer;
+          left:80px;width:30px;height:30px;font-size:14px;color:#FFFFFF;font-family:Arial">
+        <img u:protected="true" style="width:40px;height:40px" src="{images.resetBtn}" title="Restar current level"/>
+      </div>
+      <div u:protected="true" 
+        onmouseover="{onMouseOver}" onmouseout="{onMouseOut}" onclick="{undoAction}" 
+        style="position:absolute;border:0px solid red;top:410px; cursor:pointer;
+          left:130px;width:30px;height:30px;font-size:14px;color:#FFFFFF;font-family:Arial">
+        <img u:protected="true" style="width:40px;height:40px" src="{images.undoBtn}" title="Undo previous step"/>
+      </div>
+      <div u:protected="true" 
+        onmouseover="{onMouseOver}" onmouseout="{onMouseOut}" onclick="{pauseAction}" 
+        style="position:absolute;border:0px solid red;top:410px; cursor:pointer;
+          left:180px;width:30px;height:30px;font-size:14px;color:#FFFFFF;font-family:Arial">
+        <img u:protected="true" style="width:40px;height:40px" src="{images.pauseBtn}" title="Pause"/>
+      </div>
+
+      <!-- Mask -->
+      <div u:id="CanvasMask" u:protected="true"
+         style="position:absolute;border:0px solid red;top:-10px; cursor:pointer;
+          left:0px;width:590px;height:420px;display:{maskDisplay};z-index:99;">
+        <img u:protected="true" src="{images.maskScreen}"/>
+      </div>     
+      
+      <!-- Tip -->
+      <div u:id="CanvasTip" u:protected="true" onmouseover="{onMouseOver}" onmouseout="{onMouseOut}" onclick="{tipAction}"
+         style="position:absolute;border:0px solid red;top:150px; cursor:pointer;left:70px;width:360px;height:157px;display:{tipDisplay};z-index:100">
+        <img u:protected="true" src="{tipScreen}" />
+      </div>    
+      
+      <div u:id="divPassed" u:protected="true" style="position:absolute;border:0px solid red;top:430px; cursor:pointer;
+          right:22px;width:100px;height:30px;font-size:14px;color:#FFFFFF;font-family:Arial">
+      </div>
+      
+      <!-- Game canvas -->
+      <attach select="new jsx3.util.List(this.getChildren()).iterator()">
+          <drawspace boxtype="'box'" position="'relative'" top="0" left="0" width="$$parentwidth"/>
+      </attach>
+    </inlinebox>
+  </template>
+</transform>

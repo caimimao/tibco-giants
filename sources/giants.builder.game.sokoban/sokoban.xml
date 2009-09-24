@@ -1,0 +1,73 @@
+<serialization xmlns="urn:tibco.com/v3.0" jsxversion="3.6">
+  <name>Dialog</name>
+  <icon>images/prototypes/dialog.gif</icon>
+  <description>Dialog box.  (Set Modal property for a modal dialog).</description>
+  <onBeforeDeserialize/>
+  <onAfterDeserialize>
+  objJSX.doMinimize = function() {
+    this.doToggleState(jsx3.gui.Dialog.MINIMIZED);
+  };
+  
+  objJSX.getHelpBlockParent = function() {
+    return this;
+  };    
+  
+  (function(objJSX) {
+    var canvas = objJSX.getDescendantOfName("sokobanCanvas");
+    canvas.initialize();
+
+    objJSX.registerHotKey(jsx3.makeCallback(canvas.resetAction, canvas),  'r', false, false, false);
+    objJSX.registerHotKey(jsx3.makeCallback(canvas.undoAction,  canvas),  'u', false, false, false);
+    objJSX.registerHotKey(jsx3.makeCallback(canvas.startAction, canvas),  's', false, false, false);
+    objJSX.registerHotKey(jsx3.makeCallback(canvas.helpAction,  canvas),  'h', false, false, false);
+    objJSX.registerHotKey(jsx3.makeCallback(canvas.nextAction,  canvas),  'n', false, false, false);
+    objJSX.registerHotKey(jsx3.makeCallback(canvas.pauseAction,  canvas),  'p', false, false, false);
+    objJSX.registerHotKey(function(){objJSX.doClose();},  'q', false, false, false);
+
+
+    objJSX.registerHotKey(jsx3.makeCallback(canvas.moveUp   , canvas),  'i', false, false, false);
+    objJSX.registerHotKey(jsx3.makeCallback(canvas.moveDown , canvas),  'k', false, false, false);
+    objJSX.registerHotKey(jsx3.makeCallback(canvas.moveRight, canvas),  'l', false, false, false);
+    objJSX.registerHotKey(jsx3.makeCallback(canvas.moveLeft , canvas),  'j', false, false, false);
+  })(objJSX);
+  
+  objJSX.settingHandler = function(action) {
+    var canvas = this.getDescendantOfName("sokobanCanvas");
+    if(action == "clear") {
+      canvas.clearPassedNumber();
+    }
+
+    if(action == "jump") {
+      canvas.jumpToLastestLevel();
+    }
+  };
+  
+
+
+    
+  </onAfterDeserialize>
+  <object type="jsx3.gui.Dialog">
+    <variants jsxwidth="630" jsxheight="520" jsxzindex="5000" jsxwindowstate="1" jsxmodal="0" jsxoverflow="2"/>
+    <strings jsxname="dialog"/>
+    <dynamics jsxbgcolor="@Solid Medium"/>
+    <object type="jsx3.gui.WindowBar">
+      <variants/>
+      <strings jsxname="windowBar" jsxtext="Sokoban"/>
+      <object type="jsx3.gui.Menu">
+        <variants jsxxmlasync="1"/>
+        <strings jsxname="menu" jsxtip="menu" jsxtext="Settings" jsxxml="&lt;data jsxid=&quot;jsxroot&quot;&gt;  &lt;record jsxid=&quot;jump&quot; jsxtext=&quot;Jump to first unpassed level&quot;/&gt;  &lt;record jsxid=&quot;clear&quot; jsxtext=&quot;Clear passed history&quot;/&gt;&lt;/data&gt;"/>
+        <events jsxexecute="dialog.settingHandler(strRECORDID);"/>
+      </object>
+      <object type="jsx3.gui.ToolbarButton">
+        <variants/>
+        <strings jsxname="btnClose"/>
+        <dynamics jsximage="@Close Icon" jsxtip="jsx3.gui.Dialog.close"/>
+        <events jsxexecute="this.getAncestorOfType(jsx3.gui.Dialog).doClose();"/>
+      </object>
+    </object>
+    <object type="giants.builder.game.sokoban.Canvas">
+      <variants jsxleft="0" jsxtop="0" jsxoverflow="0" jsxrelativeposition="0"/>
+      <strings jsxname="sokobanCanvas" jsxwidth="100%" jsxheight="100%"/>
+    </object>
+  </object>
+</serialization>

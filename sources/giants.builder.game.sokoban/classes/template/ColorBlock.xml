@@ -1,0 +1,8 @@
+<transform version="1.0" xmlns="http://gi.tibco.com/transform/" xmlns:u="http://gi.tibco.com/transform/user">
+	<template>
+		<div u:protected="true" id="{$id}" onclick="{onclick}" 
+			style="position:absolute;left:{$left};top:{$top};width:{jsxsize};height:{jsxsize};border:0px solid red">
+			<img u:protected="true" style="width:{jsxsize};height:{jsxsize}" src="{jsximage}"/>
+		</div>
+	</template>
+</transform>

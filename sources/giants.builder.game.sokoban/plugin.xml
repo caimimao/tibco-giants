@@ -1,0 +1,52 @@
+<plugin xmlns="http://www.tibco.com/gi/amp"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.tibco.com/gi/amp http://gi.tibco.com/xsd/plugin.xsd"
+        id="giants.builder.game.sokoban"
+        name="Sokoban game running in TIBCO GI Builder"
+        version="0.1">
+  <requires>
+    <plugin id="jsx3.gui.Template"/>
+  </requires>
+
+  <resources>
+    <script id="abstractBlock" path="classes/AbstractBlock.js" eval="true">
+    </script>
+    <script id="core" path="classes/Core.js" eval="true">
+    </script>
+    <script id="colorBlock" path="classes/ColorBlock.js" eval="true">
+      <prereq id="abstractBlock"/>
+    </script>
+    <script id="canvas" path="classes/Canvas.js" eval="true">
+      <prereq id="abstractBlock"/>
+      <prereq id="core"/>
+      <prereq id="colorBlock"/>
+    </script>
+    <script id="plugin_js" path="PlugIn.js" load="early"/>
+    <xml id="sokobanDlg" path="sokoban.xml">
+      <prereq id="canvas"/>
+    </xml>
+  </resources>
+
+  <extension point="jsx3.ide.ui.menu" id="menu.game">
+    <menu id="jsx3.ide.game" label="Game" path="/jsx3.ide.giants/extension">
+      <section id="sokoban"/>
+      <divider id="about"/>
+    </menu>
+  </extension>
+
+  <extension point="jsx3.ide.ui.action" id="menu.game.sokoban">
+    <action
+        id="jsx3.ide.game.sokoban"
+        label="Sokoban..."
+        tip="Run Sokoban game for a rest"
+        menupath="/jsx3.ide.giants/jsx3.ide.game/sokoban" hkconfig="true"
+        execute="giants.builder.game.sokoban.Core.showGameDialog();"/>
+  </extension>
+
+  <extension point="giants.builder.update.info">
+    <info id="giants.builder.game.sokoban" name="Sokoban" description="Sokoban (Warehouse keeper) is a transport puzzle in which the player pushes boxes around a maze, viewed from above, and tries to put them in designated locations." url="http://code.google.com/p/tibco-giants/wiki/Sokoban" logo="images/sokoban-logo.gif"/>
+  </extension>
+
+
+
+</plugin>

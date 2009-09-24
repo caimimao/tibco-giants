@@ -1,0 +1,40 @@
+<plugin xmlns="http://www.tibco.com/gi/amp"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.tibco.com/gi/amp http://gi.tibco.com/xsd/plugin.xsd"
+        id="giants.builder.renamer"
+        class="giants.builder.renamer.PlugIn"
+        name="Batch renamer (GI AdditioNal ToolkitS)"
+        version="0.1">
+
+  <requires>
+  </requires>
+
+  <resources>
+    <script id="plugin_js" path="classes/PlugIn.js" load="early"/>
+    <xml id="cdfHungarianSettings" path="hungarian-settings.xml" load="manual"/>
+    <xml id="settingDlg_xml" path="ui/settingDlg.xml" load="manual"/>
+    <xml id="renameDlg_xml" path="ui/renameDlg.xml" load="manual"/>
+  </resources>
+
+  <bindable id="isComponentMode" value="var e = jsx3.ide ? jsx3.ide.getActiveEditor() : null; e &amp;&amp; e.getMode() == 'component'"
+            subscribe="jsx3.ide.editor.activeChanged
+                       jsx3.ide.editor.modeChanged"/>
+
+  <extension point="jsx3.ide.editor.component.dom-toolbar">
+    <button id="renamer" img="images/renamer.gif" tip="Batch renamer..." section="edit"
+            execute="this.getPlugIn().loadRenamerDialog();" enabled="{isComponentMode}"/>
+  </extension>
+
+  <extension point="jsx3.ide.ui.action" id="">
+    <action
+      id="jsx3.ide.tool.renamer.setting" label="Hungarian setting..." img="images/configure.png"
+      menupath="/jsx3.ide.giants/config" hkconfig="true" hotkey="{hk.hungarian-setting}"
+      execute="this.getPlugIn().loadSettingDlg();"
+      enabled=""/>
+  </extension>
+
+  <extension point="giants.builder.update.info">
+    <info id="giants.builder.renamer" name="Batch renamer" description="Rename multi-components in batch, also support generation Hungarian prefix and replacement based on Regular expression." url="http://code.google.com/p/tibco-giants/wiki/BatchRenamer" logo="images/rename-logo.png"/>
+  </extension>
+
+</plugin>

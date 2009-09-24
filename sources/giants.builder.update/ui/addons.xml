@@ -1,0 +1,73 @@
+<serialization xmlns="urn:tibco.com/v3.0" jsxversion="3.8">
+  <name>Dialog</name>
+  <icon>images/prototypes/dialog.gif</icon>
+  <description>Dialog box.  (Set Modal property for a modal dialog).</description>
+  <object type="jsx3.gui.Dialog">
+    <variants jsxwidth="509" jsxheight="399" jsxzindex="5000" jsxwindowstate="1"/>
+    <strings jsxname="dialog"/>
+    <dynamics jsxbgcolor="@Solid Medium"/>
+    <object type="jsx3.gui.WindowBar">
+      <variants/>
+      <strings jsxname="windowBar" jsxtext="GIAnts Addons"/>
+      <object type="jsx3.gui.ToolbarButton">
+        <variants/>
+        <strings jsxname="btnMinimize"/>
+        <dynamics jsximage="@Min Icon" jsxtip="jsx3.gui.Dialog.min"/>
+        <events jsxexecute="this.getAncestorOfType(jsx3.gui.Dialog).doToggleState();"/>
+      </object>
+      <object type="jsx3.gui.ToolbarButton">
+        <variants/>
+        <strings jsxname="btnMaximize"/>
+        <dynamics jsximage="@Restore Icon" jsxtip="jsx3.gui.Dialog.restore"/>
+        <events jsxexecute="this.getAncestorOfType(jsx3.gui.Dialog).doMaximize(this);"/>
+      </object>
+      <object type="jsx3.gui.ToolbarButton">
+        <variants/>
+        <strings jsxname="btnClose"/>
+        <dynamics jsximage="@Close Icon" jsxtip="jsx3.gui.Dialog.close"/>
+        <events jsxexecute="this.getAncestorOfType(jsx3.gui.Dialog).doClose();"/>
+      </object>
+    </object>
+    <object type="jsx3.gui.Block">
+      <variants jsxoverflow="2" jsxloadtype="1"/>
+      <strings jsxname="block" jsxwidth="100%" jsxheight="100%" jsxrelativeposition="1"/>
+      <object type="jsx3.gui.LayoutGrid">
+        <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0" jsxoverflow="2"/>
+        <strings jsxname="layoutRows" jsxrows="*, 40" jsxwidth="100%" jsxheight="100%"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxoverflow="1"/>
+          <strings jsxname="pane1" jsxwidth="100%" jsxheight="100%" jsxstyleoverride="overflow-x:hidden;" jsxborder="0px;0px;1px solid #666666;0px;" jsxbgcolor="#ffffff"/>
+          <object type="jsx3.gui.Block">
+            <variants jsxoverflow="1" jsxheight="73"/>
+            <strings jsxname="blkTemplate" jsxwidth="100%" jsxrelativeposition="1" jsxborder="0px;0px;1px solid #aaaaaa;0px;" jsxpadding="10 30 10 10" jsxdisplay="none"/>
+            <object type="jsx3.gui.LayoutGrid">
+              <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0" jsxoverflow="2"/>
+              <strings jsxname="layoutCols" jsxcols="50,*" jsxwidth="100%" jsxheight="100%"/>
+              <object type="jsx3.gui.Block">
+                <variants jsxoverflow="2"/>
+                <strings jsxname="pane1" jsxwidth="100%" jsxheight="100%" jsxdisplay="" jsxpadding="5 5 5 5"/>
+                <object type="jsx3.gui.Image">
+                  <variants jsxoverflow="2" jsxrelativeposition="1" jsxwidth="32" jsxheight="32"/>
+                  <strings jsxname="imgLogo" jsxborder="0px solid #888888"/>
+                </object>
+              </object>
+              <object type="jsx3.gui.Block">
+                <variants jsxoverflow="2"/>
+                <strings jsxname="blkInfo" jsxwidth="100%" jsxheight="100%" jsxtext="&lt;b&gt;PlugIn Monitor&lt;/b&gt;&lt;br/&gt; Show AMP PlugIn information in tree-based view at runtime." jsxdisplay=""/>
+              </object>
+            </object>
+          </object>
+        </object>
+        <object type="jsx3.gui.Block">
+          <variants jsxoverflow="2"/>
+          <strings jsxname="pane2" jsxwidth="100%" jsxheight="100%" jsxpadding="10" jsxtextalign="right"/>
+          <object type="jsx3.gui.Button">
+            <variants jsxindex="0" jsxheight="18"/>
+            <strings jsxname="button" jsxtext="Close" jsxmargin="0 4 0 0"/>
+            <events jsxexecute="dialog.doClose();"/>
+          </object>
+        </object>
+      </object>
+    </object>
+  </object>
+</serialization>
