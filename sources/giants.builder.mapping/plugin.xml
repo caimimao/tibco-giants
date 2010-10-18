@@ -1,0 +1,36 @@
+<plugin xmlns="http://www.tibco.com/gi/amp"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.tibco.com/gi/amp http://gi.tibco.com/xsd/plugin.xsd"
+        id="giants.builder.mapping"
+        name="Mapping enhancement (GI AdditioNal ToolkitS)"
+        version="0.1">
+  <requires>
+    <plugin id="jsx3.gui.Template"/>
+    <plugin id="jsx3.ide.mapping"/>
+  </requires>
+
+  <resources>
+    <script id="early_JS" load="early">
+      var engine = jsx3.amp.Engine.getEngine(jsx3.IDE);
+      engine.getPlugIn("jsx3.ide.mapping").subscribe(jsx3.amp.PlugIn.READY, function() {
+        engine.getPlugIn("giants.builder.mapping").load();
+      });
+    </script>
+    <script id="PlugIn_JS" path="classes/PlugIn.js" eval="true">
+      <prereq plugin="jsx3.ide.mapping"/>
+      <prereq id="LocatePane_JS"/>
+    </script>
+    <script id="LocatePane_JS" path="classes/LocatePane.js"/>
+    <script id="CustomMap_JS" path="classes/CustomMap.js"/>
+    <script id="RefMenu_JS" path="classes/RefMenu.js"/>
+    <xml id="locate_XML" path="ui/locate.xml">
+      <prereq id="LocatePane_JS"/>
+    </xml>
+    <xml id="refRuleTreePane_XML" path="ui/refRuleTreePane.xml"/>
+    <xml id="refMenu_XML" path="ui/refMenu.xml">
+      <prereq id="RefMenu_JS"/>
+    </xml>
+    <xml id="menu_migrate_xml" path="xml/menu_migrate.xml"/>
+  </resources>
+
+</plugin>

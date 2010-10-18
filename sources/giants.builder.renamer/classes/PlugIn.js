@@ -113,7 +113,6 @@ jsx3.lang.Class.defineClass("giants.builder.renamer.PlugIn", jsx3.amp.PlugIn, nu
     var testObj = obj.getClass();
     var name = testObj.getName();
     while(!this.prefixHash[name]) {
-      alert(this.prefixHash[name] + "!" + name)
       testObj = testObj.getSuperClass();
       name = testObj.getName();
     }

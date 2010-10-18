@@ -1,0 +1,20 @@
+<serialization xmlns="urn:tibco.com/v3.0" jsxversion="3.8">
+  <object type="jsx3.gui.LayoutGrid">
+    <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0" jsxoverflow="2"/>
+    <strings jsxname="jsx_schema_rulestree_pane" jsxcols="100%" jsxwidth="100%" jsxheight="100%"/>
+    <object type="jsx3.gui.Block">
+      <variants jsxoverflow="2"/>
+      <strings jsxname="pane1" jsxwidth="100%" jsxheight="100%"/>
+    </object>
+    <object type="jsx3.gui.Block">
+      <variants jsxoverflow="1"/>
+      <strings jsxname="pane2" jsxwidth="100%" jsxheight="100%" jsxbgcolor="#EEEEEE"/>
+      <object type="jsx3.gui.Tree">
+        <variants jsxdrag="1" jsxdrop="1" jsxmultiselect="1"/>
+        <strings jsxname="jsx_schema_ref_rulestree" jsxwidth="100%" jsxheight="100%" jsxvalue="1" jsxbgcolor="#EEEEEE"/>
+        <dynamics jsxpadding="@Tree Padding"/>
+        <xslparameters jsxindent="16"/>
+      </object>
+    </object>
+  </object>
+</serialization>

@@ -1,0 +1,32 @@
+<serialization xmlns="urn:tibco.com/v3.0" jsxversion="3.9">
+  <object type="jsx3.gui.Block">
+    <variants jsxoverflow="2" jsxheight="26"/>
+    <strings jsxname="jsx_dialog_filter_bar" jsxwidth="100%" jsxrelativeposition="1" jsxbgcolor="#E7E7E7"/>
+    <object type="jsx3.gui.LayoutGrid">
+      <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0" jsxoverflow="2"/>
+      <strings jsxname="layoutCols" jsxcols="*,129" jsxwidth="100%" jsxheight="100%"/>
+      <object type="jsx3.gui.Block">
+        <variants jsxoverflow="2"/>
+        <strings jsxname="pane1" jsxwidth="100%" jsxheight="100%" jsxpadding="4"/>
+        <object type="jsx3.gui.TextBox">
+          <variants jsxheight="18" jsxtype="0"/>
+          <strings jsxwidth="100%" jsxname="txtFilterText" jsxvalue="" jsxmargin="0 1 0 0"/>
+          <events jsxexecute="jsx_dialog_filter_bar.getPlugIn().updateFilter();"/>
+        </object>
+      </object>
+      <object type="jsx3.gui.Block">
+        <variants/>
+        <strings jsxname="pane2" jsxwidth="100%" jsxheight="100%" jsxpadding="1 0 0 10"/>
+        <object type="jsx3.gui.ToolbarButton">
+          <variants jsxtype="1" jsxstate="0" />
+          <strings jsxname="btnEnableFilter" jsxtip="Enable/Disable filter" jsximage="jsxplugin://giants.builder.filedialog/images/filter.png" />
+          <events jsxchange="jsx_dialog_filter_bar.getPlugIn().updateFilter();" />
+        </object>
+        <object type="jsx3.gui.Menu">
+          <strings jsxname="jsx_filter_history" jsximage="jsxapp:/images/icon_54.gif" jsxtext="History"/>
+          <events jsxexecute="jsx_dialog_filter_bar.getPlugIn().doFilterHistory(strRECORDID);"/>
+        </object>
+      </object>
+    </object>
+  </object>
+</serialization>

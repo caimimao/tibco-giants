@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2001-2010, TIBCO Software Inc.
+  ~ Use, modification, and distribution subject to terms of license.
+  -->
+<data jsxid="jsxroot">
+    <record jsxid="open" jsxtext="Open existed rule.." jsxtip="" jsximg="images/folder.png"/>
+    <record jsxid="recent" jsxtext="Recent rules" jsxtip=""/>
+    <record jsxid="close" jsxtext="Close" jsxtip="" jsxdisabled="1"/>
+    <record jsxid="transfer" jsxtext="Auto migrate" jsxtip="" jsxdivider="1" jsxdisabled="0"/>
+</data>

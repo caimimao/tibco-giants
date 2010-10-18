@@ -73,7 +73,7 @@
                   <strings jsxpadding="6 0 0 2"/>
                   <object type="jsx3.gui.ImageButton">
                     <variants jsxheight="16" jsxwidth="16" jsxprefetch="1" jsxtype="0" jsxstate="0"/>
-                    <strings jsxname="btnClearSearch" jsximage="jsxplugin://tibco.uxcore.util.monitor/images/delete.gif"/>
+                    <strings jsxname="btnClearSearch" jsximage="jsxplugin://giants.builder.monitor/images/delete.gif"/>
                     <dynamics jsxtip="jsx3.ide.apidoc.clear"/>
                     <events jsxexecute="pluginMonitor.doClearSearch();"/>
                   </object>
@@ -93,7 +93,7 @@
           </object>
           <object type="jsx3.gui.BlockX">
             <variants jsxoverflow="1" jsxrelativeposition="1" jsxxmlasync="1" jsxxslasync="1" jsxshare="1"/>
-            <strings jsxwidth="100%" jsxheight="100%" jsxname="content" jsxdisplay="none" jsxxslid="tibco.uxcore.util.mointor.xslPlugin" jsxxml="&lt;plugin&gt;&lt;/plugin&gt;"/>
+            <strings jsxwidth="100%" jsxheight="100%" jsxname="content" jsxdisplay="none" jsxxslid="giants.builder.mointor.xslPlugin" jsxxml="&lt;plugin&gt;&lt;/plugin&gt;"/>
             <dynamics jsxbgcolor="@Solid Light"/>
           </object>
         </object>

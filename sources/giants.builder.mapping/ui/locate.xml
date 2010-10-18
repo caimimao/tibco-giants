@@ -1,0 +1,37 @@
+<serialization xmlns="urn:tibco.com/v3.0" jsxversion="3.8">
+  <object type="giants.builder.mapping.LocatePane">
+    <variants jsxoverflow="1" jsxheight="24"/>
+    <strings jsxname="jsx_schema_quick_search" jsxwidth="100%" jsxrelativeposition="1" jsxpadding="2 0 0 0"/>
+    <dynamics jsxborder="@Outset"/>
+    <object type="jsx3.gui.LayoutGrid">
+      <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0" jsxoverflow="2"/>
+      <strings jsxname="layoutCols" jsxcols="110,*, 50" jsxwidth="100%" jsxheight="100%"/>
+      <object type="jsx3.gui.Block">
+        <variants jsxoverflow="2"/>
+        <strings jsxname="pane1" jsxwidth="100%" jsxheight="100%"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxrelativeposition="1" jsxoverflow="3"/>
+          <strings jsxname="Filter" jsxtext="Operation Name:" jsxpadding="2 5 0 5"/>
+        </object>
+      </object>
+      <object type="jsx3.gui.Block">
+        <variants jsxoverflow="2"/>
+        <strings jsxname="pane2" jsxwidth="100%" jsxheight="100%"/>
+        <object type="jsx3.gui.TextBox">
+          <variants jsxheight="18"/>
+          <strings jsxname="jsx_schema_filter_textbox" jsxmargin="0 4 0 0" jsxvalue="" jsxwidth="100%"/>
+          <events jsxexecute="jsx_schema_quick_search.locateOperation(this);"/>
+        </object>
+      </object>
+      <object type="jsx3.gui.Block">
+        <variants jsxoverflow="2"/>
+        <strings jsxname="pane3" jsxwidth="100%" jsxheight="100%" jsxpadding="0 0 0 2"/>
+        <object type="jsx3.gui.Button">
+          <variants jsxindex="0" jsxheight="18"/>
+          <strings jsxname="button" jsxtext="Locate" jsxmargin="0 4 0 0"/>
+          <events jsxexecute="jsx_schema_quick_search.locateOperation(this);"/>
+        </object>
+      </object>
+    </object>
+  </object>
+</serialization>

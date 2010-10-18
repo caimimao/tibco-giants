@@ -1,0 +1,9 @@
+<serialization xmlns="urn:tibco.com/v3.0" jsxversion="3.9">
+  <object type="giants.builder.mapping.RefMenu">
+    <variants jsxxmlasync="1" jsxdivider="1"/>
+    <strings jsxname="jsx_schema_menu_ref" jsxtip="menu" jsxtext="Migrate"
+             jsxxmlurl="xml/menu_migrate.xml"
+             jsximage="images/icon_22.gif"/>
+    <events jsxexecute="this.onMenuExecute(strRECORDID);"/>
+  </object>
+</serialization>

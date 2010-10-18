@@ -34,13 +34,14 @@
         execute="this.getPlugIn().loadAddonsListDlg();"/>
   </extension>
 
-  <extension point="jsx3.ide.ui.action" id="menu.giants.about">
+  <extension point="jsx3.ide.ui.action" id="menu.giants.check.update">
     <action
         id="jsx3.ide.giants.checkversion"
         label="Check for Update..."
         menupath="/jsx3.ide.giants/about" hkconfig="true"
         execute="this.getPlugIn().checkVersion();"/>
   </extension>
+  
   <extension point="jsx3.ide.ui.action" id="menu.giants.about">
     <action
         id="jsx3.ide.giants.about"

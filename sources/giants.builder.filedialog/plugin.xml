@@ -1,0 +1,25 @@
+<plugin xmlns="http://www.tibco.com/gi/amp"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.tibco.com/gi/amp http://gi.tibco.com/xsd/plugin.xsd"
+        id="giants.builder.filedialog"
+        name="Open Dialog enhancement (GI AdditioNal ToolkitS)"
+        version="0.1">
+  <requires>
+    <plugin id="jsx3.io.browser"/>
+  </requires>
+
+  <resources>
+    <script id="early_JS" load="early">
+      var engine = jsx3.amp.Engine.getEngine(jsx3.IDE);
+      engine.getPlugIn("jsx3.io.browser").subscribe(jsx3.amp.PlugIn.READY, function() {
+        engine.getPlugIn("giants.builder.filedialog").load();
+      });
+      engine.getPlugIn("jsx3.io.browser").load();
+    </script>
+    <script id="PlugIn_JS" path="classes/PlugIn.js" eval="true">
+      <prereq plugin="jsx3.io.browser"/>
+    </script>
+    <xml id="reFilterBar_XML" path="reFilterBar.xml"/>
+  </resources>
+
+</plugin>
