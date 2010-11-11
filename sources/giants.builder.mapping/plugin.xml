@@ -32,5 +32,9 @@
     </xml>
     <xml id="menu_migrate_xml" path="xml/menu_migrate.xml"/>
   </resources>
+  
+  <extension point="giants.builder.update.info">
+    <info id="giants.builder.mapping" name="Enhancement Mapping" description="provide a visual tool to migrate mapping from old rule file to new file based on changed wsdl file. " url="http://code.google.com/p/tibco-giants/wiki/EnhancementMapping" logo="images/logo.png"/>
+  </extension>  
 
 </plugin>

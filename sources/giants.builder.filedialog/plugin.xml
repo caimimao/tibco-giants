@@ -22,4 +22,8 @@
     <xml id="reFilterBar_XML" path="reFilterBar.xml"/>
   </resources>
 
+  <extension point="giants.builder.update.info">
+    <info id="giants.builder.filedialog" name="Filterable Dialog" description="provide a filter feature to open file dialog, you could use fitler to locate the file you want to open quickly by regular expression." url="http://code.google.com/p/tibco-giants/wiki/FilterableDialog" logo="images/filter32.jpg"/>
+  </extension>
+
 </plugin>

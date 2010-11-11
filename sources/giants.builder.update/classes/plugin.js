@@ -1,10 +1,10 @@
 (function(plugIn) {
 
-  plugIn.VERSION = "0.1_preview";
+  plugIn.VERSION = "0.2_preview";
 
   plugIn.PROJECT_INFO = ['<div style="text-align:right">', 
     '<a target="_blank" href="http://code.google.com/p/tibco-giants/">Website</a> hosted by Google Code<br/>', 
-    'Developed by <a href="mailto:eric.tibco@gmail.com">Eric SHI</a><br/> <br/>Version: $version$</div>'].join("");
+    'Developed by <a href="mailto:longwosion@gmail.com">Eric SHI</a><br/>Version: $version$</div>'].join("");
 
   plugIn.loadAboutDlg = function() {
     this.load().when(jsx3.$F(function() {
@@ -31,6 +31,9 @@
         block.setName(xml.attr("id"));
         block.getDescendantOfName("blkInfo").setText(generateHTML(xml.attr("name"), xml.attr("description"), xml.attr("url")));
         block.getDescendantOfName("imgLogo").setSrc(ext.getPlugIn().resolveURI(xml.attr("logo")));
+        var length = xml.attr("description").toString().length/150*42+50;
+        length = length > 70 ? length : 70;
+        block.setHeight(length);
         block.setDisplay(jsx3.gui.Block.DISPLAYBLOCK);
       });
       template.getParent().repaint();

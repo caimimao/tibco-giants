@@ -38,7 +38,7 @@
           <variants jsxoverflow="1"/>
           <strings jsxname="pane1" jsxwidth="100%" jsxheight="100%" jsxstyleoverride="overflow-x:hidden;" jsxborder="0px;0px;1px solid #666666;0px;" jsxbgcolor="#ffffff"/>
           <object type="jsx3.gui.Block">
-            <variants jsxoverflow="1" jsxheight="73"/>
+            <variants jsxoverflow="1" jsxheight="83"/>
             <strings jsxname="blkTemplate" jsxwidth="100%" jsxrelativeposition="1" jsxborder="0px;0px;1px solid #aaaaaa;0px;" jsxpadding="10 30 10 10" jsxdisplay="none"/>
             <object type="jsx3.gui.LayoutGrid">
               <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0" jsxoverflow="2"/>

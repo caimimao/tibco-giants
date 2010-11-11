@@ -13,8 +13,8 @@
         <strings jsxname="imgLogo" jsxsrc="images/giants-logo.gif"/>
       </object>
       <object type="jsx3.gui.Block">
-        <variants jsxleft="240" jsxtop="195" jsxwidth="150" jsxheight="100" jsxoverflow="1" jsxrelativeposition="0"/>
-        <strings jsxname="blkInfo" jsxtext="&lt;div style=&quot;text-align:right&quot;&gt; &lt;a href=&quot;http://code.google.com/p/tibco-giants/&quot;&gt;Website&lt;/a&gt; in Google Code&lt;br/&gt;Developed by &lt;a href=&quot;mailto:eric.tibco@gmail.com&quot;&gt;Eric SHI&lt;/a&gt;&lt;br/&gt; &lt;br/&gt;2009&lt;/div&gt;" jsxpadding="0 10 0 4"/>
+        <variants jsxleft="220" jsxtop="195" jsxwidth="180" jsxheight="100" jsxoverflow="1" jsxrelativeposition="0"/>
+        <strings jsxname="blkInfo" jsxtext="&lt;div style=&quot;text-align:right&quot;&gt; &lt;a href=&quot;http://code.google.com/p/tibco-giants/&quot;&gt;Website&lt;/a&gt; in Google Code&lt;br/&gt;Developed by &lt;a href=&quot;mailto:longwosion@gmail.com&quot;&gt;Eric SHI&lt;/a&gt;&lt;br/&gt; &lt;br/&gt;2009&lt;/div&gt;" jsxpadding="0 10 0 4"/>
       </object>
       <object type="jsx3.gui.Button">
         <variants jsxindex="0" jsxheight="18" jsxrelativeposition="0" jsxtop="263" jsxleft="345"/>
